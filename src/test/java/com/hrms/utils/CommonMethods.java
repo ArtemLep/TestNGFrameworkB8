@@ -1,6 +1,7 @@
 package com.hrms.utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -51,9 +52,9 @@ public class CommonMethods {
     }
 
     /*This method will clear a textbox and send text to it*/
-    public static void sendText(WebElement element, String textToSend) {
+    public static void sendText(WebElement element, String text) {
         element.clear();
-        element.sendKeys(textToSend);
+        element.sendKeys(text);
 
     }
 
@@ -73,9 +74,19 @@ public class CommonMethods {
 
     /*Theis methods wil wait until and then click */
 
-    public static void click(WebElement element){
+    public static void click(WebElement element) {
         waitForClickability(element);
         element.click();
+    }
+
+    public static JavascriptExecutor getJSExecutor() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        return js;
+    }
+
+    public static void JSclick(WebElement element) {
+        getJSExecutor().executeScript("argumetns[0].click", element);
+
     }
 }
 
