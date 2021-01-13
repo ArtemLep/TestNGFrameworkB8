@@ -15,6 +15,9 @@ public class DashboardPage extends CommonMethods {
     @FindBy(id = "menu_pim_addEmployee")
     public WebElement addEmployeeBtn;
 
+    @FindBy (id = "menu_pim_viewEmployeeList")
+    public WebElement employeeList;
+
     public DashboardPage() {
         PageFactory.initElements(CommonMethods.driver, this);
     }
